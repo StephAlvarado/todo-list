@@ -1,6 +1,5 @@
 function TodoListItem({ todo }) {
-  return;
-  <TodoListItem key={todo.id} todo={todo} />;
+  return <li>{todo.title}</li>;
 }
 
 export default TodoListItem;
