@@ -7,14 +7,23 @@ function App() {
   const [todoList, setTodoList] = useState([]);
 
   function addTodo(title) {
-    console.log('addTodo called with:', title);
-
     const newTodo = {
       title: title,
       id: Date.now(),
+      isCompleted: false,
     };
 
     setTodoList([...todoList, newTodo]);
+  }
+
+  function completeTodo(id) {
+    const updatedTodos = todoList.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, isCompleted: true };
+      }
+      return todo;
+    });
+    setTodoList(updatedTodos);
   }
 
   return (
@@ -22,7 +31,7 @@ function App() {
       <h1>Stephanie's Todos</h1>
       <TodoForm onAddTodo={addTodo} />
 
-      <TodoList todoList={todoList} />
+      <TodoList todoList={todoList} onCompleteTodo={completeTodo} />
     </div>
   );
 }
