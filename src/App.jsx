@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 import TodoForm from './features/TodoForm';
 import TodoList from './features/TodoList/TodoList';
 import TodosViewForm from './features/TodosViewForm';
+import styles from './App.module.css';
+import './App.css';
 
 const url = `https://api.airtable.com/v0/${import.meta.env.VITE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}`;
 
@@ -114,24 +116,35 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>Stephanie's Todos</h1>
-      <TodoForm onAddTodo={addTodo} />
+    <div className={styles.appContainer}>
+      <div className={styles.appCard}>
+        <h1>
+          <img
+            src="/logo.png"
+            alt="Todo Logo"
+            width="30"
+            style={{ marginRight: '10px' }}
+          />
+          Stephanie's Todos
+        </h1>
 
-      <TodoList
-        todoList={todoList}
-        onCompleteTodo={completeTodo}
-        onUpdateTodo={updateTodo}
-      />
+        <TodoForm onAddTodo={addTodo} />
 
-      <TodosViewForm
-        sortField={sortField}
-        setSortField={setSortField}
-        sortDirection={sortDirection}
-        setSortDirection={setSortDirection}
-        queryString={queryString}
-        setQueryString={setQueryString}
-      />
+        <TodoList
+          todoList={todoList}
+          onCompleteTodo={completeTodo}
+          onUpdateTodo={updateTodo}
+        />
+
+        <TodosViewForm
+          sortField={sortField}
+          setSortField={setSortField}
+          sortDirection={sortDirection}
+          setSortDirection={setSortDirection}
+          queryString={queryString}
+          setQueryString={setQueryString}
+        />
+      </div>
     </div>
   );
 }

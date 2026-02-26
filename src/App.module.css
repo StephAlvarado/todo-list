@@ -1,0 +1,22 @@
+.appContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.appCard {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0.1);
+}
+
+.error {
+  border: 1px solid red;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #ffe6e6;
+  border-radius: 6px;
+}

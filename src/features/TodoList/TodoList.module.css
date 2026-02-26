@@ -1,0 +1,20 @@
+/* Container for the todo list */
+.container {
+  margin-top: 20px;
+}
+
+/* Unordered list styling */
+.list {
+  list-style: none; /* remove bullets */
+  padding: 0; /* remove extra padding */
+  margin: 0;
+}
+
+/* Message shown when no todos exist */
+.emptyMessage {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #ffecec;
+  color: #333;
+}

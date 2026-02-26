@@ -1,18 +1,18 @@
-{
-  /*extract from TodoList.jsx*/
-}
-
 import TodoListItem from './TodoListItem';
+import styles from './TodoList.module.css';
 
 function TodoList({ todoList, onCompleteTodo, onUpdateTodo }) {
+  // Safety check if todoList is undefined at first render
+  if (!todoList) return null;
+
   const filteredTodoList = todoList.filter((todo) => !todo.isCompleted);
 
   return (
-    <div>
+    <div className={styles.container}>
       {filteredTodoList.length === 0 ? (
-        <p> Add todo above to get started </p>
+        <p className={styles.emptyMessage}>Add todo above to get started</p>
       ) : (
-        <ul>
+        <ul className={styles.list}>
           {filteredTodoList.map((todo) => (
             <TodoListItem
               key={todo.id}
